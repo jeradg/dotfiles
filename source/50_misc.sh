@@ -1,24 +1,29 @@
-# Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob
+################################################################################
+# Other stuff
+################################################################################
 
-# Check the window size after each command and, if necessary,
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-export GREP_OPTIONS='--color=auto'
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
 
-# Prevent less from clearing the screen while still showing colors.
-export LESS=-XR
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Set the terminal's title bar.
-function titlebar() {
-  echo -n $'\e]0;'"$*"$'\a'
-}
+### Added by the Heroku Toolbelt
+export PATH="$PATH:/usr/local/heroku/bin"
 
-# SSH auto-completion based on entries in known_hosts.
-if [[ -e ~/.ssh/known_hosts ]]; then
-  complete -o default -W "$(cat ~/.ssh/known_hosts | sed 's/[, ].*//' | sort | uniq | grep -v '[0-9]')" ssh scp sftp
-fi
-
-# Disable ansible cows }:]
-export ANSIBLE_NOCOWS=1

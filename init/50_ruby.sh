@@ -1,16 +1,28 @@
-# Initialize rbenv.
-source $DOTFILES/source/50_ruby.sh
+# Install rvm
+if [[ ! "$(type -P rvm)" ]]; then
+  \curl -sSL https://get.rvm.io | bash -s stable --ruby
+fi
 
-# Install Ruby.
-if [[ "$(type -P rbenv)" ]]; then
-  versions=(2.1.3) # 2.0.0-p576 1.9.3-p547)
+# Initialize rvm
+source $DOTFILES/source/90_rvm.sh
 
-  rubies=($(setdiff "${versions[*]}" "$(rbenv whence ruby)"))
-  if (( ${#rubies[@]} > 0 )); then
-    e_header "Installing Ruby versions: ${rubies[*]}"
-    for r in "${rubies[@]}"; do
-      rbenv install "$r"
-      [[ "$r" == "${versions[0]}" ]] && rbenv global "$r"
-    done
+# install gems
+if [[ "$(type -P rvm)" ]]; then
+  rvm use default
+
+  if [[ ! "$(type -P tmuxinator)" ]]; then
+    gem install tmuxinator
+  fi
+
+  if [[ ! "$(type -P sass)" ]]; then
+    gem install sass
+  fi
+
+  if [[ ! "$(type -P compass)" ]]; then
+    gem install compass
+  fi
+
+  if [[ ! "$(type -P jekyll)" ]]; then
+    gem install jekyll
   fi
 fi
