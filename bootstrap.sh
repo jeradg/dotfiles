@@ -9,6 +9,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Install SpaceVim
 sh -c "$(curl -fsSL https://spacevim.org/install.sh)"
 
+mv ~/.zshrc ~/.zshrc_OLD
+
 # link dotfiles
 ln -s "$(pwd)/.SpaceVim.d" ~/.SpaceVim.d
 ln -s "$(pwd)/.tmux/.tmux.conf" ~/.tmux.conf
