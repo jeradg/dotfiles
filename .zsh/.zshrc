@@ -133,10 +133,6 @@ export PGDATA="/usr/local/var/postgres"
 # Set up gpg for yubikey commit signing
 export GPG_TTY=$(tty)
 
-# Load NVM
-# (Don't use the nvm oh-my-zsh plugin. Doesn't load nvm from brew on mac.)
-export NVM_DIR="$HOME/.nvm"
-
 # yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -151,6 +147,10 @@ case "$OSTYPE" in
 
     # Homebrew path (for Apple Silicon installations)
     export PATH=/opt/homebrew/bin:$PATH
+
+    # Load NVM
+    # (Don't use the nvm oh-my-zsh plugin. Doesn't load nvm from brew on mac.)
+    export NVM_DIR="$HOME/.nvm"
 
     . "$(brew --prefix nvm)/nvm.sh"  # This loads nvm on Mac with Homebrew
 
