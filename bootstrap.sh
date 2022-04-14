@@ -25,8 +25,7 @@ ln -sf $SCRIPTPATH/.tmux/env/$ENV_PREFIX.conf ~/.tmux.env.conf
 ln -sf $SCRIPTPATH/.zshrc ~/.zshrc
 
 # Install neovim/SpaceVim dependencies
-
 python3 -m pip install --user --upgrade pynvim
-gem install neovim
+gem install --user-install neovim
 yarn global add neovim
 yarn global add tree-sitter-cli

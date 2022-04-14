@@ -163,10 +163,19 @@ case "$OSTYPE" in
 
     . "$(brew --prefix nvm)/nvm.sh"  # This loads nvm on Mac with Homebrew
 
-    # autojump
+    # start autojump
     [ -f `brew --prefix`/etc/profile.d/autojump.sh  ] && . `brew --prefix`/etc/profile.d/autojump.sh
   ;;
   linux*)
     # ...
   ;;
 esac
+
+# Absolute path of this script
+# (See https://stackoverflow.com/a/28336473/2140241)
+export DOTFILES_ZSHRC_PATH=$(readlink "${(%):-%x}")
+# Absolute path of the directory this script is in
+export DOTFILES_PATH=$(cd "$(dirname "$DOTFILES_ZSHRC_PATH")" && pwd -P)
+
+# Use the SpaceVim config from these dotfiles
+export SPACEVIMDIR="$DOTFILES_PATH/.SpaceVim.d"
