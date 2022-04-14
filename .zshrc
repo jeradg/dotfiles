@@ -119,8 +119,6 @@ alias vim="nvim"
 alias vi="nvim"
 alias oldvim="\vim"
 
-export SPACEVIMDIR="$(pwd)/.SpaceVim.d/"
-
 export TERM="tmux-256color"
 
 bindkey "\eOH" beginning-of-line
@@ -135,6 +133,11 @@ export PGDATA="/usr/local/var/postgres"
 # Set up gpg for yubikey commit signing
 export GPG_TTY=$(tty)
 
+# Add user-specific gems to $PATH
+# NOTE: This will not auto-update when changing ruby versions (e.g., with rvm or chruby)
+export USER_GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$USER_GEM_HOME/bin"
+
 # yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -143,7 +146,11 @@ if [ -e /Users/jeradgallinger/.nix-profile/etc/profile.d/nix.sh ]; then . /Users
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 case "$OSTYPE" in
+  # macOS
   darwin*)
+    # use readlink from coreutils
+    alias readlink="greadlink"
+
     # make fzf oh-my-zsh plugin work with Apple Silicon homebrew
     export FZF_BASE=/opt/homebrew/Cellar/fzf/0.29.0
 
