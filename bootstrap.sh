@@ -8,9 +8,19 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 mv ~/.zshrc ~/.zshrc.default-oh-my-zsh
 
 # link dotfiles
-ln -s "$(JERADG_DOTFILES_PATH)/.SpaceVim.d" ~/.SpaceVim.d
-ln -s "$(JERADG_DOTFILES_PATH)/.tmux/.tmux.conf" ~/.tmux.conf
-ln -s "$(JERADG_DOTFILES_PATH)/.zsh/.zshrc" ~/.zshrc
+ln -s $JERADG_DOTFILES_PATH/.tmux/.tmux.conf ~/.tmux.conf
+ln -s $JERADG_DOTFILES_PATH/.zshrc ~/.zshrc
+
+case "$OSTYPE" in
+  darwin*)
+    $ENV_PREFIX="darwin"
+  ;;
+  linux*)
+    $ENV_PREFIX="linux"
+  ;;
+esac
+
+ln -s $JERADG_DOTFILES_PATH/.tmux/env/$ENV_PREFIX.conf $JERADG_DOTFILES_PATH/.tmux/env.conf
 
 # Install neovim/SpaceVim dependencies
 

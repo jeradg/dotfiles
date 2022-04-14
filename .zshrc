@@ -119,6 +119,8 @@ alias vim="nvim"
 alias vi="nvim"
 alias oldvim="\vim"
 
+export SPACEVIMDIR="$(pwd)/.SpaceVim.d/"
+
 export TERM="tmux-256color"
 
 bindkey "\eOH" beginning-of-line
