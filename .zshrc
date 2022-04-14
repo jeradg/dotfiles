@@ -173,7 +173,16 @@ esac
 
 # Absolute path of this script
 # (See https://stackoverflow.com/a/28336473/2140241)
-export DOTFILES_ZSHRC_PATH=$(readlink "${(%):-%x}")
+CURRENT_PATH=${(%):-%x}
+SYMLINK_PATH=$(readlink "$CURRENT_PATH")
+
+# If $SYMLINK_PATH is not empty, use it
+if [[ ! -z $SYMLINK_PATH ]]; then
+  export DOTFILES_ZSHRC_PATH="$SYMLINK_PATH"
+else
+  export DOTFILES_ZSHRC_PATH="$CURRENT_PATH"
+fi
+
 # Absolute path of the directory this script is in
 export DOTFILES_PATH=$(cd "$(dirname "$DOTFILES_ZSHRC_PATH")" && pwd -P)
 
