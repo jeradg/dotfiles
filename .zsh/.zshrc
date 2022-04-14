@@ -69,9 +69,6 @@ ZSH_THEME="agnoster"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 
-# make fzf oh-my-zsh plugin work with Apple Silicon homebrew
-export FZF_BASE=/opt/homebrew/Cellar/fzf/0.29.0
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -114,9 +111,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Homebrew path (for Apple Silicon installations)
-export PATH=/opt/homebrew/bin:$PATH
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -143,14 +137,27 @@ export GPG_TTY=$(tty)
 # (Don't use the nvm oh-my-zsh plugin. Doesn't load nvm from brew on mac.)
 export NVM_DIR="$HOME/.nvm"
 
-. "$(brew --prefix nvm)/nvm.sh"  # This loads nvm on Mac with Homebrew
-
-# autojump
-[ -f `brew --prefix`/etc/profile.d/autojump.sh  ] && . `brew --prefix`/etc/profile.d/autojump.sh
-
 # yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 if [ -e /Users/jeradgallinger/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jeradgallinger/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+case "$OSTYPE" in
+  darwin*)
+    # make fzf oh-my-zsh plugin work with Apple Silicon homebrew
+    export FZF_BASE=/opt/homebrew/Cellar/fzf/0.29.0
+
+    # Homebrew path (for Apple Silicon installations)
+    export PATH=/opt/homebrew/bin:$PATH
+
+    . "$(brew --prefix nvm)/nvm.sh"  # This loads nvm on Mac with Homebrew
+
+    # autojump
+    [ -f `brew --prefix`/etc/profile.d/autojump.sh  ] && . `brew --prefix`/etc/profile.d/autojump.sh
+  ;;
+  linux*)
+    # ...
+  ;;
+esac
