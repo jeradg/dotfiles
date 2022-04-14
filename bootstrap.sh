@@ -1,15 +1,13 @@
 #!/bin/bash
 
-export JERADG_DOTFILES_PATH="$(pwd)"
-
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 mv ~/.zshrc ~/.zshrc.default-oh-my-zsh
 
 # link dotfiles
-ln -s $JERADG_DOTFILES_PATH/.tmux/.tmux.conf ~/.tmux.conf
-ln -s $JERADG_DOTFILES_PATH/.zshrc ~/.zshrc
+ln -s $(pwd)/.tmux/.tmux.conf ~/.tmux.conf
+ln -s $(pwd)/.zshrc ~/.zshrc
 
 case "$OSTYPE" in
   darwin*)
@@ -20,7 +18,7 @@ case "$OSTYPE" in
   ;;
 esac
 
-ln -s $JERADG_DOTFILES_PATH/.tmux/env/$ENV_PREFIX.conf $JERADG_DOTFILES_PATH/.tmux/env.conf
+ln -s $(pwd)/.tmux/env/$ENV_PREFIX.conf $(pwd)/.tmux/env.conf
 
 # Install neovim/SpaceVim dependencies
 
