@@ -52,6 +52,7 @@
 
 [[layers]]
     name = 'lang#ruby'
+    enabled_linters = ['rubocop']
 
 [[layers]]
     name = 'lang#elixir'
