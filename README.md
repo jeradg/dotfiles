@@ -5,6 +5,18 @@
 ## Installation
 
 ```sh
+# Install Xcode command-line tools
+xcode-select --install
+
+# Install my oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/jeradg/oh-my-zsh/main/tools/install.sh)"
+
+# Install RVM
+curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+# Install NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
 # Clone this repo
 git clone git@github.com:jeradg/dotfiles.git
 
