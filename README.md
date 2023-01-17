@@ -14,7 +14,7 @@ git clone git@github.com:jeradg/.tmux.git ~/.tmux
 sh ~/.tmux/install-terminfo.sh
 
 # Install my oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/jeradg/oh-my-zsh/main/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/jeradg/ohmyzsh/main/tools/install.sh)"
 
 # Install RVM
 curl -sSL https://get.rvm.io | bash -s stable --ruby
