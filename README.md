@@ -14,11 +14,11 @@ cd dotfiles
 brew bundle
 
 # Run bootstrap to install oh-my-zsh and create links
-sh bootstrap.sh
+zsh bootstrap.sh
 
 # Install RVM
 curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 # Install SpaceVim
-sh -c "$(curl -fsSL https://spacevim.org/install.sh | bash)"
+zsh -c "$(curl -fsSL https://spacevim.org/install.sh | bash)"
 ```
