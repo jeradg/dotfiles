@@ -8,6 +8,11 @@
 # Install Xcode command-line tools
 xcode-select --install
 
+# Install tmux config and terminal colours
+
+git clone git@github.com:jeradg/.tmux.git ~/.tmux
+sh ~/.tmux/install-terminfo.sh
+
 # Install my oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/jeradg/oh-my-zsh/main/tools/install.sh)"
 
