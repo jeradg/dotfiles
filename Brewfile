@@ -1,4 +1,6 @@
 brew "coreutils"
 brew "autojump"
 brew "fzf"
+brew "tmux"
+brew "nvm"
 brew "neovim"

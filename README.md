@@ -13,6 +13,10 @@ cd dotfiles
 # If installing on macOS, install brew packages from Brewfile
 brew bundle
 
+# Install yarn
+
+npm install --global yarn
+
 # Run bootstrap to install oh-my-zsh and create links
 zsh bootstrap.sh
 
