@@ -82,6 +82,9 @@
     ]
 
 [[layers]]
+    name = 'telescope'
+
+[[layers]]
     name = 'treesitter'
 
 [[custom_plugins]]
