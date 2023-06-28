@@ -9,6 +9,7 @@
 # All SpaceVim option below [option] section
 [options]
     bootstrap_before = 'custom_setup#before'
+    bootstrap_after = 'myspacevim#after'
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
@@ -33,7 +34,11 @@
     relativenumber = false
     autocomplete_method = 'coc'
 
-# Enable autocomplete layer
+[[layers]]
+    name = 'core'
+    filetree_show_hidden = true
+    enable_filetree_filetypeicon = true
+
 [[layers]]
     name = 'autocomplete'
     auto_completion_return_key_behavior = 'complete'
@@ -55,13 +60,10 @@
     enabled_linters = ['rubocop']
 
 [[layers]]
-    name = 'lang#elixir'
-
-[[layers]]
     name = 'lang#javascript'
 
-# [[layers]]
-#     name = 'lang#typescript'
+[[layers]]
+    name = 'lang#typescript'
 
 [[layers]]
     name = 'lang#html'
@@ -71,6 +73,13 @@
 
 [[layers]]
     name = 'lsp'
+    filetypes = [
+        'ruby',
+        'javascript',
+        'typescript',
+        'html',
+        'css'
+    ]
 
 [[layers]]
     name = 'treesitter'
@@ -81,14 +90,6 @@
 
 [[custom_plugins]]
     name = 'chrisbra/csv.vim'
-    merged = false
-
-[[custom_plugins]]
-    repo = 'neoclide/coc.nvim'
-    merged = false
-
-[[custom_plugins]]
-    repo = 'NullVoxPopuli/coc-ember'
     merged = false
 
 [[custom_plugins]]
@@ -104,13 +105,5 @@
     merged = false
 
 [[custom_plugins]]
-    repo = 'nvim-telescope/telescope.nvim'
-    merged = false
-
-[[custom_plugins]]
     repo = 'nvim-telescope/telescope-fzf-native.nvim'
-    merged = false
-
-[[custom_plugins]]
-    repo = 'nvim-treesitter/nvim-treesitter'
     merged = false

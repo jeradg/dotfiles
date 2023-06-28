@@ -1,4 +1,7 @@
 function! custom_setup#before() abort
+    let g:oceanic_next_terminal_bold = 1
+    let g:oceanic_next_terminal_italic = 1
+
     nnoremap <C-P> :Telescope find_files theme=dropdown<cr>
     " " FIXME: "C-[" is an alias for ESC, and we don't want
     " " Telescope opening on ESC!
