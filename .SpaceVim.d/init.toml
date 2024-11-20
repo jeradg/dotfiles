@@ -32,7 +32,6 @@
     disabled_plugins = ['deoplete.nvim']
     # misc
     relativenumber = false
-    autocomplete_method = 'coc'
 
 [[layers]]
     name = 'core'
@@ -41,8 +40,7 @@
 
 [[layers]]
     name = 'autocomplete'
-    auto_completion_return_key_behavior = 'complete'
-    auto_completion_tab_key_behavior = 'cycle'
+    auto_completion_enable_snippets_in_popup = false
 
 [[layers]]
     name = 'shell'
@@ -56,14 +54,14 @@
     name = 'VersionControl'
 
 [[layers]]
+    name = 'lang#go'
+
+[[layers]]
     name = 'lang#ruby'
     enabled_linters = ['rubocop']
 
 [[layers]]
     name = 'lang#javascript'
-
-[[layers]]
-    name = 'lang#typescript'
 
 [[layers]]
     name = 'lang#html'
@@ -76,7 +74,6 @@
     filetypes = [
         'ruby',
         'javascript',
-        'typescript',
         'html',
         'css'
     ]
@@ -92,21 +89,9 @@
     merged = false
 
 [[custom_plugins]]
-    name = 'chrisbra/csv.vim'
-    merged = false
-
-[[custom_plugins]]
     repo = 'sheerun/vim-polyglot'
     merged = false
 
 [[custom_plugins]]
     repo = 'tpope/vim-abolish'
-    merged = false
-
-[[custom_plugins]]
-    repo = 'nvim-lua/plenary.nvim'
-    merged = false
-
-[[custom_plugins]]
-    repo = 'nvim-telescope/telescope-fzf-native.nvim'
     merged = false
