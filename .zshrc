@@ -2,7 +2,7 @@
 ZSH_DISABLE_COMPFIX=true
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -11,7 +11,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -141,6 +141,9 @@ export PATH="$PATH:$USER_GEM_HOME/bin"
 # yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# postgres
+export PATH="$PATH:/opt/homebrew/Cellar/postgresql@13/13.15/bin"
+
 if [ -e /Users/jeradgallinger/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jeradgallinger/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -188,3 +191,11 @@ export DOTFILES_PATH=$(cd "$(dirname "$DOTFILES_ZSHRC_PATH")" && pwd -P)
 
 # Use the SpaceVim config from these dotfiles
 export SPACEVIMDIR="$DOTFILES_PATH/.SpaceVim.d"
+
+eval "$(pyenv init --path)"
+
+# Output ruby deprecation warnings
+export RUBYOPT="-W:deprecated"
+
+# activate mise
+eval "$(/Users/jeradgallinger/.local/bin/mise activate zsh)"
